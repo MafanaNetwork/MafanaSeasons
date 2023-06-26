@@ -24,7 +24,7 @@ public class Fall extends Season {
         double chance = 0.8; // Adjust the chance as desired (between 0.0 and 1.0)
         for (Player player : Bukkit.getOnlinePlayers()) {
             Location playerLocation = player.getLocation();
-            int radius = 25; // Adjust the radius as desired
+            int radius = 128; // Adjust the radius as desired
 
             for (int x = -radius; x <= radius; x++) {
                 for (int y = -radius; y <= radius; y++) {
