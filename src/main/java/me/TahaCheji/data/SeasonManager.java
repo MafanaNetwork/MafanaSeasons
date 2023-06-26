@@ -27,8 +27,8 @@ public class SeasonManager extends BukkitRunnable {
         this.onlinePlayers = new ArrayList<>();
     }
 
-    public void start() {
-        runTaskTimer(MafanaSeasons.getInstance(), 0, 60L); // Runs every second (20 ticks)
+    public void start(int i) {
+        runTaskTimer(MafanaSeasons.getInstance(), 0, i * 5L); // Runs every second (20 ticks)
     }
 
     public void addPlayer(Player player) {
@@ -109,12 +109,11 @@ public class SeasonManager extends BukkitRunnable {
                 int seasonPriority = season.getPriority();
 
                 if (nextSeason == null || seasonPriority < nextSeason.getPriority()) {
-                    seasonsMysql.setDay(0);
-
                     nextSeason = season;
                 }
             }
         }
+        seasonsMysql.setDay(0);
         changeSeason(nextSeason);
         return nextSeason;
     }

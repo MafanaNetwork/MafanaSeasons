@@ -4,6 +4,8 @@ import me.TahaCheji.command.PlayerAdminCommand;
 import me.TahaCheji.data.Season;
 import me.TahaCheji.data.SeasonManager;
 import me.TahaCheji.data.SeasonsMysql;
+import me.TahaCheji.data.seasons.Fall;
+import me.TahaCheji.data.seasons.Spring;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -44,13 +46,14 @@ public final class MafanaSeasons extends JavaPlugin {
         }
         seasonsMysql.connect();
         seasonManager = new SeasonManager(Bukkit.getWorld("world"));
-        seasonManager.start();
         getCommand("mfseason").setExecutor(new PlayerAdminCommand());
     }
 
     @Override
     public void onDisable() {
         seasonsMysql.disconnect();
+        Fall.restoreLeaves();
+        Spring.removeSpawnedFlowers();
     }
 
     public SeasonManager getSeasonManager() {
