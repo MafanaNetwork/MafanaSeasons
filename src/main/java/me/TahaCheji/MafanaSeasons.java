@@ -47,6 +47,7 @@ public final class MafanaSeasons extends JavaPlugin {
         seasonsMysql.connect();
         seasonManager = new SeasonManager(Bukkit.getWorld("world"));
         seasonManager.registerListeners();
+        seasonManager.start(5);
         getCommand("mfseason").setExecutor(new PlayerAdminCommand());
     }
 
