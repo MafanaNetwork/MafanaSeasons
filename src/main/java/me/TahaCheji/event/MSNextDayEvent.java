@@ -1,0 +1,27 @@
+package me.TahaCheji.event;
+
+import org.bukkit.World;
+import org.bukkit.event.Event;
+import org.bukkit.event.HandlerList;
+
+public class MSNextDayEvent extends Event {
+    private static final HandlerList handlers = new HandlerList();
+    private final World world;
+
+    public MSNextDayEvent(World world) {
+        this.world = world;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    @Override
+    public HandlerList getHandlers() {
+        return handlers;
+    }
+
+    public static HandlerList getHandlerList() {
+        return handlers;
+    }
+}

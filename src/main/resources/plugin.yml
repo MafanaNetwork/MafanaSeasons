@@ -1,0 +1,7 @@
+name: MafanaSeasons
+version: '${project.version}'
+main: me.TahaCheji.MafanaSeasons
+api-version: 1.16
+
+commands:
+  mfseason:
